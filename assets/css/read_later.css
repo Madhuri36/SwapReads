@@ -5,6 +5,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    user-select: none;
 }
 h1 {
     margin-top: 20px;
@@ -23,7 +24,7 @@ h1 {
     align-items: center;
     border: 1px solid #ccc;
     padding: 10px;
-    background-color: #fff;
+    background-color: #f18585;
     width: 100%;
     max-width: 500px;
     box-sizing: border-box;
@@ -1416,7 +1417,7 @@ footer {
     }
   }
   
-  @media (max-width: 992px) {
+  @media (max-width: 990px) {
     .switch-container {
       /* right: -20px; */
       bottom: 20px;
@@ -1448,7 +1449,7 @@ footer {
    * responsive for large than 992px screen
    */
   
-  @media (min-width: 992px) {
+  @media (min-width: 990px) {
     /**
      * CUSTOM PROPERTY
      */
@@ -1921,7 +1922,7 @@ footer {
   #back-to-top-container {
   
     /* position: fixed; */
-    top: 83%;
+    top: 70%;
     right: 2.8%;
     /* Changed left to right */
     cursor: pointer;
@@ -2066,18 +2067,39 @@ footer {
     }
   }
   
-  @media (min-width: 961px) {
+  @media (min-width: 960px) {
     .navbar-list {
       flex-direction: row;
     }
+  }  
   
+  @media (min-width: 960px) and (max-width:1010px){
     #back-to-top-container {
-      position: fixed;
-      top: 82%;
-      right: 8%;
-      /* Changed left to right */
+    position: fixed;
+    top: 70% !important;
+    right: 3.4% !important;
+    /* Changed left to right */
     }
   }
+  @media(max-width : 960px){
+    #back-to-top-container{
+      position: fixed;
+      top: 70% !important;
+      right: 3.4% !important;
+      cursor: pointer;
+      z-index: 1000;
+    }
+  }
+  
+  
+  @media only screen and (max-width: 598px) {
+    #back-to-top-container {
+      position: fixed;
+      top: 70% !important;
+      right: 4.95% !important;
+    }
+  }
+  
   
   @media (min-width: 1025px) {
     .navbar-list {
@@ -2182,14 +2204,6 @@ footer {
       width: 100%;
       margin: 5px 0;
     }
-  
-    #back-to-top-container {
-      position: fixed;
-      top: 76%;
-      right: 4.95%;
-      /* Changed left to right */
-    }
-  
   }
   
   /* recommendation system */
@@ -2291,6 +2305,16 @@ footer {
     /* Border color when the select element is focused */
     box-shadow: 0 0 5px rgb(232, 167, 137);
     /* Adding a shadow for better focus indication */
+  }
+
+  .light-mode .switch-container {
+    right: 14px;
+    top: 5px;
+  }
+
+  .dark-mode .switch-container {
+    right: 14px;
+    top: 5px;
   }
   
   .dark-mode .preference-bar label,
@@ -2527,7 +2551,7 @@ footer {
   
   
   /* Medium devices (tablets, 992px and up) */
-  @media only screen and (min-width: 992px) {
+  @media only screen and (min-width: 990px) {
     .container00 {
       max-width: 800px;
     }
@@ -2567,7 +2591,7 @@ footer {
   
   /* media queries for chat widget  */
   
-  @media screen and (min-width:960px){
+  @media screen and (max-width:1010px){
    .bp-widget-web.bp-widget-web{
       right: calc(3.4% - 23px) ;
     } 
@@ -2585,4 +2609,29 @@ footer {
         right: calc(4.95% - 23px) ;
       }
     }
-  
+    .row-copy {
+      display: flex;
+      flex-direction: row;
+      text-align: center;
+      justify-content: center;
+      gap: 10px;
+      }
+      .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        }
+        .modal {
+          display: none;
+          position: fixed;
+          z-index: 1;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          overflow: auto;
+          background-color: rgb(0, 0, 0);
+          background-color: rgba(0, 0, 0, 0.4);
+      }

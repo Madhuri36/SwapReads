@@ -15,6 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/BookRecommend.css">
+    <link rel="stylesheet" href="./assets/css/MenuClick.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
@@ -35,9 +36,54 @@
     <script src="../js/rateUsModal.js" defer></script>
     <script src="../js/preloader.js"></script>
      
+    <style>
+      @media (max-width: 575px) {
+        .switch-container {
+          margin-top: 4.2rem;
+          margin-right: 1rem;
+        }
+  
+        /* Navbar Toggle Button placed in center */
+        .nav-toggle-btn {
+          margin-top: -2rem;
+          margin-left: 2.2rem;
+        }
+  
+        .dark-mode .switch-label {
+          top: -1.5rem !important;
+        }
+  
+        .switch-label {
+          top: -1rem !important
+        }
+      }
+  
+      .dark-mode .switch-label {
+        top: 1.5rem;
+      }
+  
+      .switch-label {
+        right: 2.3rem;
+        top: 1.4rem;
+        position: relative;
+        width: 45px;
+        height: 30px;
+        background-color: #ccc;
+        border-radius: 20px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.5s ease;
+      }
+    </style>
 </head>
 
+
 <body>
+
     <div id="preloader">
         <div class="loader">
           <div class="book-wrapper">
@@ -121,97 +167,70 @@
 
         <div class="container">
     
-          <nav class="navbar" data-navbar>
-            <a href="../../index.html" class="logo" style="display:flex;">
-              <img src="../images/new_logo_banner_dark.png" alt="" class="logopic" style=" width:0.1px;opacity: 0;" />
+          <nav class="navbar nav_activated" data-navbar>
+            <a href="#home" onclick="lenis.scrollTo('#home');" class="logo" style="display:flex;">
+              <img src="./../images/new_logo_banner_dark.png" alt="" class="logopic" style=" width:0.1px;opacity: 0;" />
             </a>
     
             <ul class="navbar-list">
-              <a href="../../index.html">
-                <img src="../images/new_logo_banner_dark.png" class="logopic" style=" width: 150px;">
+              <img src="./../images/new_logo_banner_dark.png" class="logopic" style=" width: 200px;">
     
-
-                <li class="navbar-item">
-                  <a href="../../index.html" class="navbar-link" data-nav-link><i class="ri-home-fill"></i> Home</a>
-                </li>
-    
-                <li class="navbar-item">
-                  <a href="../../index.html#benefits" class="navbar-link" data-nav-link><i class="ri-bar-chart-fill"></i>
-                    Benefits</a>
-                </li>
-    
-                <li class="navbar-item">
-                  <a href="../../index.html#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link><i
-                      class="ri-bar-chart-fill"></i> Genre</a>
-    
-                </li>
-
               <li class="navbar-item">
                 <a href="../../index.html" onclick="lenis.scrollTo('#home')" class="navbar-link" data-nav-link><i
                     class="ri-home-fill"></i> Home</a>
               </li>
     
               <li class="navbar-item">
-                <a href="./index.html#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" data-nav-link><i
+                <a href="../../index.html#benefits" onclick="lenis.scrollTo('#benefits')" class="navbar-link" data-nav-link><i
                     class="ri-bar-chart-fill"></i> Benefits</a>
               </li>
     
               <li class="navbar-item">
-                <a href="./index.html#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link><i
+                <a href="../../index.html#genre" onclick="lenis.scrollTo('#genre')" class="navbar-link" data-nav-link><i
                     class="ri-bar-chart-fill"></i> Genre</a>
               </li>
     
               <li class="navbar-item">
-                <a href="/assets/html/index.html#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link><i
+                <a href="../../index.html#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link" data-nav-link><i
                     class="ri-customer-service-2-fill"></i> Contact</a>
               </li>
-
     
-                <li class="navbar-item">
-                  <a href="../../index.html#contact" onclick="lenis.scrollTo('#contact')" class="navbar-link"
-                    data-nav-link><i class="ri-customer-service-2-fill"></i> Contact</a>
-                </li>
-    
-                <li class="navbar-item">
-                  <a href="rate.html" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a>
-                </li>
-                <li class="navbar-item" id="logout-r">
-                  <a href="../html/login.html" class="navbar-link">Login/Signup</a>
-                </li>
+              <li class="navbar-item">
+                <a href="#" onclick="openRateUsModal(); return false;" class="navbar-link">Rate Us</a>
+              </li>
+              <li class="navbar-item" id="login-signup-link">
+                <a href="../html/login.html" class="navbar-link">Login/Signup</a>
+              </li>
     
     
-
-                <li class="navbar-item dropdown" id="more-dropdown">
-                  <a href="#" class="navbar-link" id="more-link">More
-                    <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em"
-                      viewBox="0 0 24 24">
-                      <path fill="currentcolor" d="m12 13.171l4.95-4.95l1.414 1.415L12 16L5.636 9.636L7.05 8.222z" />
-                    </svg></a>
-                  <div class="dropdown-menu" id="dropdown-menu">
-
+              <li class="navbar-item dropdown" id="more-dropdown">
+                <a href="#" class="navbar-link" id="more-link">More
+                  <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="1.3em" height="1.3em"
+                    viewBox="0 0 24 24">
+                    <path fill="currentcolor" d="m12 13.171l4.95-4.95l1.414 1.415L12 16L5.636 9.636L7.05 8.222z" />
+                  </svg></a>
+                <div class="dropdown-menu" id="dropdown-menu">
+    
                   <ul class="dropdown-menu-list">
                     <li class="dropdown-menu-item">
-                      <a href="./index.html#chapters" onclick="lenis.scrollTo('#chapters')" class="navbar-link" data-nav-link><i
+                      <a href="#chapters" onclick="lenis.scrollTo('#chapters')" class="navbar-link" data-nav-link><i
                           class="ri-medal-fill"></i> Literary Realms</a>
                     </li>
                     <li class="dropdown-menu-item">
-                      <a href="./index.html#pricing" onclick="lenis.scrollTo('#pricing')" class="navbar-link" data-nav-link><i
+                      <a href="#pricing" onclick="lenis.scrollTo('#pricing')" class="navbar-link" data-nav-link><i
                           class="ri-price-tag-3-fill"></i> Pricing</a>
                     </li>
                     <li class="dropdown-menu-item">
-                      <a href="./booklistswap.html" class="navbar-link">Booklist for Swapping</a>
+                      <a href="./../html/addremovebook.html" class="navbar-link">Booklist for Swapping</a>
                     </li>
                     <li class="dropdown-menu-item">
-                      <a href="./book_recommend.html" class="navbar-link" data-nav-link>
+                      <a href="./../html/book_recommend.html" class="navbar-link" data-nav-link>
                         <i class="ri-customer-service-2-fill"></i> Book Recommendation
                       </a>
                     </li>
                     <li class="dropdown-menu-item">
-                      <a href="./freeBooks.html" onclick="lenis.scrollTo('#E-books')" class="navbar-link"
+                      <a href="./../html/freeBooks.html" onclick="lenis.scrollTo('#E-books')" class="navbar-link"
                         data-nav-link><i class="ri-price-tag-3-fill"></i>Free E-books</a>
-                    </li>
-                    <li class="dropdown-menu-item">
-                      <a href="./read_later.html" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Read Later</a>
                     </li>
                     <li class="dropdown-menu-item">
                       <a href="./../html/about.html" class="navbar-link">About</a>
@@ -219,53 +238,10 @@
                   </ul>
                 </div>
               </li>
-
-    
-                    <ul class="dropdown-menu-list">
-                      <li class="dropdown-menu-item">
-                        <a href="../../index.html#chapters" onclick="lenis.scrollTo('#chapters')" class="navbar-link"
-                          data-nav-link><i class="ri-medal-fill"></i> Literary Realms</a>
-                      </li>
-                      <li class="dropdown-menu-item">
-                        <a href="../../index.html#pricing" onclick="lenis.scrollTo('#pricing')" class="navbar-link"
-                          data-nav-link><i class="ri-price-tag-3-fill"></i> Pricing</a>
-                      </li>
-                      <li class="dropdown-menu-item">
-                        <a href="addremovebook.html" class="navbar-link">Booklist for Swapping</a>
-                      </li>
-                      <li class="dropdown-menu-item">
-                        <a href="book_recommend.html" class="navbar-link" data-nav-link>
-                          <i class="ri-customer-service-2-fill"></i> Book Recommendation
-                        </a>
-                      </li>
-                      <li class="dropdown-menu-item">
-                        <a href="freeBooks.html" onclick="lenis.scrollTo('#E-books')" class="navbar-link" data-nav-link><i
-                            class="ri-price-tag-3-fill"></i>Free E-books</a>
-                      </li>
-                      <li class="dropdown-menu-item">
-                        <a href="about.html" class="navbar-link">About</a>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-    
-                <li>
-    
-                  <div class="switch-container">
-                    <input type="checkbox" id="switch" class="switch-checkbox">
-                    <label for="switch" class="switch-label">
-                      <div class="switch-button">
-                        <span class="material-icons sun-icon"></span>
-                        <span class="material-icons moon-icon"></span>
-                      </div>
-                    </label>
-                  </div>
-    
-                </li>
-                <!-- Google Translate Element -->
-                <li class="navbar-item">
-                  <div id="google_element"></div>
-                </li>
+              <!-- Google Translate Element -->
+              <li class="navbar-item">
+                <div id="google_element"></div>
+              </li>
             </ul>
           </nav>
         </div>
@@ -278,30 +254,50 @@
             }, 'google_element');
           }
         </script>
-        <div class="switch-container">
-          <input type="checkbox" id="switch" class="switch-checkbox">
-          <label for="switch" class="switch-label">
-            <div class="switch-button">
-              <span class="material-icons sun-icon">wb_sunny</span>
-              <span class="material-icons moon-icon">brightness_2</span>
-            </div>
-          </label>
-        </div>
+    <script>
+      let lastScrollTop = 0;
+    
+      function onScroll() {
+          let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+          const header = document.querySelector('.header');
+    
+          if (currentScroll > lastScrollTop) {
+              header.classList.add('hidden');
+          } else {
+              header.classList.remove('hidden');
+          }
+          lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
+      }
+    
+      window.addEventListener("scroll", onScroll);
+    </script>
+    
     
         </li>
         </ul>
         </nav>
     
-        <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
-          <ion-icon name="menu-outline" aria-hidden="true" class="open"></ion-icon>
+        <div class="switch-toggle-container">
+          <div class="switch-container switch-container-mobile">
+            <input type="checkbox" id="switch" class="switch-checkbox">
+            <label for="switch" class="switch-label">
+              <div class="switch-button">
+                <span class="material-icons sun-icon">wb_sunny</span>
+                <span class="material-icons moon-icon">brightness_2</span>
+              </div>
+            </label>
+          </div>
     
-          <ion-icon name="close-outline" aria-hidden="true" class="close"></ion-icon>
-        </button>
+          <button class="nav-toggle-btn" aria-label="toggle menu" data-nav-toggler>
+            <ion-icon name="menu-outline" aria-hidden="true" class="open"></ion-icon>
     
+            <ion-icon name="close-outline" aria-hidden="true" class="close"></ion-icon>
+          </button>
+        </div>
         </div>
       </header>
       <main>
-
+    
         <!-- Rate Us Modal Pop up -->
         <div class="rate-us-modal-wrapper">
           <div class="rate-us-modal">
@@ -319,7 +315,9 @@
             <button id="submit_rating" class="submit_button">Submit Rating</button>
             <p class="thank_you_message">Thank you for rating us!</p>
           </div>
+
         </div>
+    
     
         <article>
     
@@ -348,19 +346,52 @@
                     <option value="comedy">Comedy</option>
                     <!-- Add more options as needed -->
                 </select>
+                <div class="author">
+            <input type="text" id="author" name="author" placeholder="Enter author name">
+            </div>
                 <button onclick="redirectToRecommendations()" class="btn-primary">Get Recommendations</button>
             </div>
         </div>
-
+       
         <!-- Recommendation Results Section -->
         <div id="recommendationResults" class="container01" style="display: none;">
             <h1 id="recommendationTitle" class="recommendationTitle-heading" style="font-family: 'Philosopher', sans-serif;">Recommended Books</h1>
             <div id="booksContainer" class="books-container">
                 <!-- Book recommendations will be displayed here -->
             </div>
+        </div></div>
+      <h1 class="trending"><center>Trending Books </center></h1>
+	<div class="gallery-container">
+		<div class="gallery">
+			<div>
+				<img src="../images/trendingbook1.jpg" alt="Book 1"><br>
+				<a href="https://www.gutenberg.org/ebooks/73862"><button class="preview-button">Read Now</button>
+			</div>
+			<!-- https://www.gutenberg.org/ebooks/73862 -->
+			<div>
+				<img src="../images/trendingbook2.jpg" alt="Book 2"><br>
+				<a href="https://www.gutenberg.org/ebooks/73864"><button class="preview-button">Read Now</button></a>
+			</div>
+			<!-- https://www.gutenberg.org/ebooks/73864 -->
+			<div>
+				<img src="../images/trendingbook3.jpg" alt="Book 3"><br>
+				<a href="https://www.gutenberg.org/ebooks/73856"></a><button class="preview-button">Read Now</button>
+			</div>
+			<!-- https://www.gutenberg.org/ebooks/73856 -->
+			<div>
+				<img src="../images/trendingbook4.jpg" alt="Book 4"><br> 
+				<a href="https://www.gutenberg.org/ebooks/73851"></a><button class="preview-button">Read Now</button>
+			</div>
+			<!-- https://www.gutenberg.org/ebooks/73851 -->
+			<div>
+				<img src="../images/trendingbook5.jpg" alt="Book 5"><br> 
+				<a href="https://www.gutenberg.org/ebooks/73850"></a><button class="preview-button">Read Now</button>
+			</div>
+			<!-- https://www.gutenberg.org/ebooks/73850 -->
+		</div>
         </div>
 
-    </div>
+
 
     <script>
         const coords = { x: 0, y: 0 };
@@ -429,11 +460,12 @@
 
         function redirectToRecommendations() {
             const genre = document.getElementById('genre').value;
-            if (genre === 'select') {
-                alert('Please select a genre.');
+            const author = document.getElementById('author').value;
+
+            if (genre === 'select' && !author) {
+                alert('Please select a genre or provide an author.');
             } else {
-                // Simulate book recommendations (replace with actual data)
-                const recommendations = getRecommendations(genre);
+                const recommendations = getRecommendations(genre, author);
                 displayRecommendations(recommendations);
                 document.getElementById('recommendationResults').scrollIntoView({ behavior: 'smooth' });
             }
@@ -441,10 +473,11 @@
         
 
         // Simulated function to get book recommendations
-        function getRecommendations(genre) {
+        function getRecommendations(genre, author) {
+          let recommendations = []
             switch (genre) {
                 case 'fiction':
-                    return [
+                    recommendations = [
                         {
                             title: "To Kill a Mockingbird",
                             author: "Harper Lee",
@@ -502,8 +535,9 @@
                             description: 'A novel about Santiago, an Andalusian shepherd boy, who journeys to Egypt in search of a treasure buried in the Pyramids.'
                         }
                     ];
+                    break;
                 case 'technology':
-                    return [
+                    recommendations = [
                         {
                             title: "Clean Code: A Handbook of Agile Software Craftsmanship",
                             author: "Robert C. Martin",
@@ -561,8 +595,9 @@
                             description: "It is a gripping tale of a team of engineers racing to build a revolutionary computer in the 1970s, highlighting their dedication, challenges, and the spirit of innovation.",
                         }
                     ];
+                    break;
                 case 'classics':
-                    return [
+                    recommendations= [
                         {
                             title: "Pride and Prejudice",
                             author: "Jane Austen",
@@ -604,8 +639,9 @@
                             description: "A tale of obsession and revenge, focusing on the monomaniacal quest of Ahab, captain of the whaler Pequod, for revenge against Moby Dick, the giant white sperm whale that on the previous whaling voyage bit off Ahab's leg at the knee."
                         }
                     ];
+                    break;
                 case 'self-help':
-                    return [
+                    recommendations = [
                         {
                             title: "The Power of Positive Thinking",
                             author: "Norman Vincent Peale",
@@ -655,8 +691,9 @@
                             description: "A self-help book that emphasizes the impact of positive thinking on achieving success and personal happiness. It blends psychology, practical advice, and spiritual guidance."
                         }
                     ];
+                    break;
                 case 'science-fiction':
-                    return [
+                    recommendations = [
                         {
                             title: "Dune",
                             author: "Frank Herbert",
@@ -698,8 +735,9 @@
                             description: "A cyberpunk novel set in a future America where the internet, virtual reality, and the mafia dominate society. The story follows Hiro Protagonist, a computer hacker and pizza delivery driver.",
                         }
                     ];
+                    break;
                 case 'mystery':
-                    return [
+                    recommendations = [
                         {
                             title: "Gone Girl",
                             author: "Gillian Flynn",
@@ -749,8 +787,9 @@
                             description: "Follows three women, each at a crossroads, and explores the secrets they keep, the lies they tell, and the dangerous truths they hold. The book culminates in a shocking murder at a school trivia night."
                         }
                     ];
+                    break;
                 case 'adventure':
-                    return [
+                    recommendations =  [
                         {
                             title: "The Hobbit",
                             author: "J.R.R. Tolkien",
@@ -792,6 +831,7 @@
                             description: "The adventures of a young boy named Huck Finn and an escaped slave named Jim as they journey down the Mississippi River on a raft. Along the way, they encounter various characters and face moral dilemmas."
                         }
                     ];
+                    break;
 
                 case 'romance':
                     return [
@@ -844,11 +884,12 @@
                             description: "Follows the story of Landon Carter, a popular student, and Jamie Sullivan, the daughter of the town's Baptist minister, as they fall in love despite their differences and face challenges together."
                         }
                     ];
+                    break;
 
 
 
                 case 'fantasy':
-                    return [
+                    recommendations = [
                         {
                             title: "Harry Potter and the Sorcerer's Stone",
                             author: "J.K. Rowling",
@@ -890,10 +931,11 @@
                             description: "The first book in the epic fantasy series 'A Song of Ice and Fire', it follows the power struggles among noble families as they vie for control of the Iron Throne of the Seven Kingdoms, set against a backdrop of dark magic and political intrigue."
                         }
                     ];
+                    break; 
 
 
                 case 'biography':
-                    return [
+                    recommendations = [
                         {
                             "title": "Steve Jobs",
                             "author": "Walter Isaacson",
@@ -927,8 +969,9 @@
                             description: "Walter Isaacson's biography delves into the life and genius of Leonardo da Vinci, exploring his art, science, and enduring legacy."
                         }
                     ];
+                    break; 
                     case 'action':
-                    return[
+                    recommendations = [
                         {
                             title: "The Hunger Games",
                             author: "Suzanne Collins",
@@ -962,10 +1005,11 @@
                             description: "Harvard symbologist Robert Langdon finds himself entangled in a thrilling quest to unravel a conspiracy hidden within the works of Leonardo da Vinci, racing against time and mysterious forces."
                         }
                     ];
+                    break; 
 
                     case 'comedy':
-    return [
-        {
+                  recommendations = [
+                        {
             title: "The Hitchhiker's Guide to the Galaxy",
             author: "Douglas Adams",
             genre: "Comedy",
@@ -1006,13 +1050,35 @@
             description: "A humorous account of a boating holiday on the Thames taken by three friends: J, Harris, and George, along with their dog, Montmorency. The book is filled with comedic anecdotes and observations about their misadventures."
         }
     ];
+    break; 
 
                 default:
-                    return [];
+                  recommendations = [];
+                    break;
             }
+            if (author) {
+                recommendations = recommendations.filter(book => book.author.toLowerCase().includes(author.toLowerCase()));
+            }
+
+            if (recommendations.length === 0) {
+                recommendations.push({
+                    title: 'No recommendations found',
+                    author: author || 'Any',
+                    genre: genre !== 'select' ? genre : 'Any',
+                    year: '',
+                    description: `No books found for ${author ? `author "${author}" and ` : ''}genre "${genre !== 'select' ? genre : 'Any'}".`,
+                    image: 'https://via.placeholder.com/280x400'
+                });
+            }
+
+            return recommendations;
         }
 
+
+        
         // Function to display recommendations
+        
+
         function displayRecommendations(recommendations) {
             const recommendationsContainer = document.getElementById('booksContainer');
             recommendationsContainer.innerHTML = '';
@@ -1022,15 +1088,15 @@
                 bookElement.classList.add('book');
 
                 const bookInfo = `
-          <div class="book-info">
-            <h2>${book.title}</h2>
-            <p><strong>Author:</strong> ${book.author}</p>
-            <p><strong>Genre:</strong> ${book.genre}</p>
-            <p><strong>Year:</strong> ${book.year}</p>
-            <p><strong>Description:</strong> ${book.description}</p>
-          </div>
-          <img src="${book.image}" alt="${book.title}" class="book-image" style="width: 280px; height: 400px; ">
-        `;
+                    <div class="book-info">
+                        <h2>${book.title}</h2>
+                        <p><strong>Author:</strong> ${book.author}</p>
+                        <p><strong>Genre:</strong> ${book.genre}</p>
+                        <p><strong>Year:</strong> ${book.year}</p>
+                        <p><strong>Description:</strong> ${book.description}</p>
+                    </div>
+                    <img src="${book.image}" alt="${book.title}" class="book-image" style="width: 280px; height: 400px;">
+                `;
                 bookElement.innerHTML = bookInfo;
                 recommendationsContainer.appendChild(bookElement);
             });
@@ -1039,13 +1105,11 @@
             document.getElementById('recommendationResults').style.display = 'block';
             document.getElementById('recommendationTitle').innerText = `Recommended Books for ${capitalizeFirstLetter(document.getElementById('genre').value)}`;
             const recommendationTitle = document.getElementById('recommendationTitle');
-            // recommendationTitle.style.fontFamily = 'Poppins, sans-serif';
             recommendationTitle.style.fontSize = '42px';
             recommendationTitle.style.textAlign = 'center';
             recommendationTitle.style.marginBottom = '23px';
-       }
-
-        // Helper function to capitalize the first letter of a string
+        }
+        //Helper function
         function capitalizeFirstLetter(string) {
             return string.charAt(0).toUpperCase() + string.slice(1);
         }
@@ -1107,6 +1171,7 @@
             localStorage.setItem('theme', 'light-mode');
           }
         });
+
       } else {
         console.error("Switch checkbox not found!"); // Log an error if switchCheckbox is null
       }
@@ -1114,7 +1179,231 @@
     
 </script>
 
+
     </article>
+    <footer>
+      <div class="foot-top">
+        <div class="foot-left">
+  
+          <div class="desc">
+  <!--google translate-->
+            <div id="google_translate_element"></div>
+  
+            <script type="text/javascript">
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement(
+                        {pageLanguage: 'en'},
+                        'google_translate_element'
+                    );
+                }
+            </script>
+  
+            <script type="text/javascript"
+                    src=
+        "https://translate.google.com/translate_a/element.js?
+        cb=googleTranslateElementInit">
+            </script>
+            <div><a href="#" class="logo">SwapReads</a></div>
+            <div>
+              <p style="text-align: justify; " class="description">SwapReads.com is the ultimate destination for book
+                lovers
+                seeking to swap and
+  
+                discover new literary gems.
+                Connect with fellow enthusiasts, exchange your favorite reads, and embark on exciting new adventures in
+                the
+                world of literature—all on one convenient platform. Join us and dive into a universe of endless
+                possibilities!
+              </p>
+            </div>
+  
+          </div>
+        </div>
+        <div class="foot-middle">
+          <h2>Quick Links</h2>
+          <div id="quicklinks">
+            <div>
+            <ul>
+              <li class="foot-quick"><a href="#home" onclick="lenis.scrollTo('#home')">Home</a></li>
+              <li class="foot-quick"><a href="#benefits" onclick="lenis.scrollTo('#benefits')">Benefits</a></li>
+              <li class="foot-quick"><a href="#chapters" onclick="lenis.scrollTo('#chapters')">Literary Realms</a></li>
+              <li class="foot-quick"><a href="#pricing" onclick="lenis.scrollTo('#pricing')">Pricing</a></li>
+              <li class="foot-quick"><a href="./assets/html/bookrecommend.html"
+                onclick="lenis.scrollTo('#contact')">Recommended Book</a></li>
+            </ul>
+          </div>
+          <div>
+            <ul>
+              <li class="foot-quick"><a href="./assets/html/booklistswap.html" onclick="lenis.scrollTo('#contact')">Swap
+                  BookList</a></li>
+              <li class="foot-quick"><a href="./assets/html/freeBooks.html"
+                  onclick="lenis.scrollTo('#contact')">E-Book</a></li>
+              <li class="foot-quick"><a href="./assets/html/about.html" onclick="lenis.scrollTo('#contact')">About</a>
+              </li>
+              <li class="foot-quick"><a href="#contact" onclick="lenis.scrollTo('#contact')">Contact Us</a></li>
+              <li class="foot-quick"><a href="#faqq" onclick="lenis.scrollTo('#faqq')">FAQ</a></li>
+            </ul>
+          </div>
+          </div>
+        </div>
+        <div class="social-icons">
+  
+          <style>
+            input[type="email"] {
+                border: 2px solid #ccc; /* Gray border */
+                border-radius: 4px; /* Rounded corners */
+                padding: 10px; /* Inner padding */
+                font-size: 16px; /* Font size */
+            }
+          </style>
+  
+          <form type="newsletter">
+            <label for="newsletter-email" class="newsletter-form">Subscribe to our Newsletter</label>
+            <div class="row-flex">
+                <!-- Email input -->
+                <input type="email" id="newsletter-email" name="email" placeholder="E mail address" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\.com$" 
+                title="Please enter a valid email address that ends with '.com'" required>
+                <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn">
+            </div>
+        </form>
+        <div id="confirmationMessage" style="display: none;">Thank you for subscribing!</div>
+  
+  
+          <div class="icons">
+            <a href="https://www.linkedin.com/in/anurag-verma-b91417253/">
+              <div class="icon">
+                <i class="fab fa-linkedin" title="linkedin" style="cursor: pointer;"></i>
+              </div>
+            </a>
+  
+            <a href="https://x.com/anuragverma_108">
+              <div class="icon">
+                <i class="fab fa-twitter" title="X"style="cursor: pointer;"></i>
+              </div>
+            </a>
+  
+            <a href="#">
+              <div class="icon">
+                <i class="fab fa-instagram" title="Instagram"style="cursor: pointer;"></i>
+              </div>
+            </a>
+  
+  
+            <a href="https://www.youtube.com/@anuragbytes" title="YouTube">
+              <div class="icon">
+                <i class="fab fa-youtube" style="cursor: pointer;"></i>
+              </div>
+            </a>
+  
+          </div>
+  
+  
+          <div id="back-to-top-container" onclick="lenis.scrollTo('#home')" class="right">
+            <div class="circle1">
+              <svg id="back-to-top" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
+                <path
+                  d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z" />
+              </svg>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+  
+  
+  
+  
+      <!-- adding privacy policy and copyright popup-->
+      <div style="text-align: center; align-items: center;">
+        <p style="text-align: center">
+          &copy;
+          <script>document.write(new Date().getFullYear())</script> All Rights Reserved. Made with ❤ by Guardian Hackers.
+        </p>
+        <div class="row-copy">
+  
+  
+        <a href="#" id="copyrightPolicyLink">Copyright Policy</a> |
+        <a href="#" id="privacyNoticeLink">Privacy Notice</a>
+      </div>
+      </div>
+  
+      <!-- Copyright Policy Modal -->
+      <div id="copyrightPolicyModal" class="modal">
+        <div class="modal-content">
+          <span class="close" id="closeCopyright">&times;</span>
+          <h1>Copyright Policy</h1>
+          <p>Welcome to SwapReads. Here is our copyright policy:</p>
+          <ul>
+            <li>All content on this website is owned by SwapReads unless otherwise stated.</li>
+            <li>You may not reproduce, distribute, or use the content without prior written permission.</li>
+            <li>Users may download and print content for personal use only.</li>
+            <li>Unauthorized use of any content may violate copyright, trademark, and other laws.</li>
+            <li>If you believe your copyrighted work is being infringed upon, please contact us with detailed information.</li>
+          </ul>
+        </div>
+      </div>
+  
+      <!-- Privacy Notice Modal -->
+      <div id="privacyNoticeModal" class="modal">
+        <div class="modal-content">
+          <span class="close" id="closePrivacy">&times;</span>
+          <h1>Privacy Notice</h1>
+          <p>Welcome to SwapReads. Here is our privacy notice:</p>
+          <ul>
+            <li>We collect personal information when you register, buy, or sell books.</li>
+            <li>We use this information to provide and improve our services.</li>
+            <li>We do not share your personal information with third parties without your consent.</li>
+            <li>We take reasonable measures to protect your data from unauthorized access.</li>
+            <li>You can contact us to update or delete your personal information.</li>
+            <li>By using our site, you consent to our privacy practices.</li>
+          </ul>
+        </div>
+      </div>
+  
+      <script>
+        // Get the modal elements
+        var copyrightModal = document.getElementById("copyrightPolicyModal");
+        var privacyModal = document.getElementById("privacyNoticeModal");
+  
+        // Get the link elements
+        var copyrightLink = document.getElementById("copyrightPolicyLink");
+        var privacyLink = document.getElementById("privacyNoticeLink");
+  
+        // Get the <span> elements that close the modals
+        var closeCopyright = document.getElementById("closeCopyright");
+        var closePrivacy = document.getElementById("closePrivacy");
+  
+        // When the user clicks the link, open the modal 
+        copyrightLink.onclick = function() {
+          copyrightModal.style.display = "block";
+        }
+        privacyLink.onclick = function() {
+          privacyModal.style.display = "block";
+        }
+  
+        // When the user clicks on <span> (x), close the modal
+        closeCopyright.onclick = function() {
+          copyrightModal.style.display = "none";
+        }
+        closePrivacy.onclick = function() {
+          privacyModal.style.display = "none";
+        }
+  
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+          if (event.target == copyrightModal) {
+            copyrightModal.style.display = "none";
+          }
+          if (event.target == privacyModal) {
+            privacyModal.style.display = "none";
+          }
+        }
+      </script>
+  
+  
+  
+  </footer>
 </body>
 
 </html>
