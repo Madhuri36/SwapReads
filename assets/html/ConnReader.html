@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Booklist for Swapping</title>
+    <title>Connect to Readers</title>
     <link rel="apple-touch-icon" sizes="180x180" href="../favicon_package_v0.16/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon_package_v0.16/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="../favicon_package_v0.16/favicon-16x16.png">
@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="./assets/css/MenuClick.css"> 
     <link rel="stylesheet" href="./../css/style.css">
     <link rel="stylesheet" href="./../css/Available.css">
+    <link rel="stylesheet" href="../css/readerConn.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
       integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
       crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -167,87 +168,7 @@
             background-color: var(--old-rose_30);
         }
 
-        .book-list {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .book-item {
-            background-color: var(--ghost-white);
-            margin: 5px 0;
-            padding: 20px;
-            border: 1px solid var(--light-gray);
-            border-radius: 3px;
-            text-align: left;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .book-item h3 {
-            margin: 0 0 5px;
-            color: var(--charcoal);
-        }
-
-        .book-item p {
-            margin: 5px 0;
-            color: var(--sonic-silver);
-        }
-
-        .remove-btn {
-            background: none;
-            border: none;
-            color: var(--old-rose);
-            font-size: 1.5rem;
-            cursor: pointer;
-            align-self: flex-end;
-        }
-
-        .interested-users {
-            margin-top: 10px;
-            padding-top: 10px;
-            border-top: 1px solid var(--light-gray);
-        }
-
-        .interested-users form {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .interested-users input[type="text"] {
-            margin-bottom: 5px;
-        }
-
-        .interested-users ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .interested-users li {
-            background-color: var(--light-pink);
-            margin: 3px 0;
-            padding: 5px;
-            border-radius: 3px;
-        }
-
-        .notification {
-            display: none;
-            background-color: var(--old-rose);
-            color: var(--white);
-            padding: 5px;
-            border-radius: 3px;
-            margin-top: 5px;
-            text-align: center;
-        }
-        #a{
-          color: #000000;
-          font-size: bold;
-        }
-        #a:hover {
-  background-color:black;
-  color: white;
-
-}
+       
 
         @media only screen and (max-width: 786px) {
             #container5 {
@@ -332,6 +253,9 @@
                         </a>
                       </li>
                       <li class="dropdown-menu-item">
+                        <a href="./ConnReader.html" class="navbar-link" data-nav-link><i class="ri-price-tag-3-fill"></i>Reader Connection</a>
+                      </li>
+                      <li class="dropdown-menu-item">
                         <a href="freeBooks.html" onclick="lenis.scrollTo('#E-books')" class="navbar-link" data-nav-link><i
                             class="ri-price-tag-3-fill"></i>Free E-books</a>
                       </li>
@@ -398,27 +322,61 @@
     
             <ion-icon name="close-outline" aria-hidden="true" class="md hydrated close"></ion-icon>
           </button>
-    
         </div>
       </header>
-      <section>
-    <header class="navbar5">
-        <h1 class="navbar-header" style="margin-top: 170px;"><a href="#">Your Booklist for Swapping</a></h1>
-    </header>
-    <div id="container5" style="margin-bottom: 20px;">
-        <h2>Add a Book</h2>
-        <form id="book-form">
-            <input type="text" id="book-title" placeholder="Book Title" required>
-            <input type="text" id="book-author" placeholder="Author" required>
-            <input type="text" id="book-genre" placeholder="Genre" required>
-            <button type="submit" id="a">Add to List</button>
-        </form>
-        <h2>Ready-to-Swap Reads</h2>
-        <ul class="book-list" id="book-list">
-            <!-- Books will be dynamically added here -->
-        </ul>
+
+      <div class="reader">
+        <h1>Reader Connections</h1>
+        <div class="Psuedo-nav">
+            <button class="nav-btn" data-section="user-directory">User Directory</button>
+            <button class="nav-btn" data-section="user-profile">User Profile</button>
+            <button class="nav-btn" data-section="private-messaging">Private Messaging</button>
+            <button class="nav-btn" data-section="privacy-settings">Privacy Settings</button>
+        </div>
     </div>
-</section>
+    <main>
+        <!-- User Directory Section -->
+        <section id="user-directory" class="section">
+            <h2>User Directory</h2>
+            <input type="text" id="search-bar" placeholder="Search by genre, location, etc.">
+            <div id="user-list"></div>
+        </section>
+
+        <!-- User Profile Section -->
+        <section id="user-profile" class="section" style="display: none;">
+            <h2>User Profile</h2>
+            <p><strong>Name:</strong> Alice</p>
+            <p><strong>Location:</strong> New York</p>
+            <p><strong>Favorite Genres:</strong> Fiction, Mystery</p>
+            <p><strong>Favorite Books:</strong> The Great Gatsby, Sherlock Holmes</p>
+            <div id="connections-list"></div>
+        </section>
+
+        <!-- Private Messaging Section -->
+        <section id="private-messaging" class="section" style="display: none;">
+            <h2>Private Messaging</h2>
+            <div id="chat-list"></div>
+            <div id="chat-window"></div>
+            <input type="text" id="message-input" placeholder="Type a message">
+            <button id="send-btn">Send</button>
+        </section>
+
+        <!-- Privacy Settings Section -->
+        <section id="privacy-settings" class="section" style="display: none;">
+            <h2>Privacy Settings</h2>
+            <label>
+                <input type="checkbox" id="show-profile">
+                Show my profile to others
+            </label>
+            <label>
+                <input type="checkbox" id="allow-requests">
+                Allow connection requests
+            </label>
+        </section>
+    </main>
+    <script src="../js/ReaderConn.js"></script>
+
+
 <footer>
   <div class="foot-top">
     <div class="foot-left">
@@ -441,7 +399,8 @@
     "https://translate.google.com/translate_a/element.js?
     cb=googleTranslateElementInit">
         </script>
-        <div><a href="#" class="logo">SwapReads</a></div>
+        <div>
+            <a href="#" class="logo">SwapReads</a></div>
         <div>
           <p style="text-align: justify; " class="description">SwapReads.com is the ultimate destination for book
             lovers

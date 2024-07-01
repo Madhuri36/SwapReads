@@ -320,24 +320,8 @@ function showConfirmationMessage() {
               </div>
             </a>
           </div>
-         
-  
-          <div id="back-to-top-container" onclick="lenis.scrollTo('#home')" class="right">
-            <div class="circle1">
-              <svg id="back-to-top" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-                class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
-                <path
-                  d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z" />
-              </svg>
-            </div>
-          </div>
-          
         </div>
       </div>
-  
-          
-  
-  
       <!-- adding privacy policy and copyright popup-->
       <div style="text-align: center; align-items: center;">
         <p style="text-align: center">
@@ -346,14 +330,14 @@ function showConfirmationMessage() {
         </p>
         <div class="row-copy">
   
-      
-        <a href="#" id="copyrightPolicyLink">Copyright Policy</a> |
-        <a href="#" id="privacyNoticeLink">Privacy Notice</a>
+  
+        <a href="copyrightpolicy.html" id="copyrightPolicyLink">Copyright Policy</a> |
+        <a href="privacynotice.html" id="privacyNoticeLink">Privacy Notice</a>
       </div>
       </div>
       
       <!-- Copyright Policy Modal -->
-      <div id="copyrightPolicyModal" class="modal">
+      <!-- <div id="copyrightPolicyModal" class="modal">
         <div class="modal-content">
           <span class="close" id="closeCopyright">&times;</span>
           <h1>Copyright Policy</h1>
@@ -366,10 +350,10 @@ function showConfirmationMessage() {
             <li>If you believe your copyrighted work is being infringed upon, please contact us with detailed information.</li>
           </ul>
         </div>
-      </div>
+      </div> -->
       
       <!-- Privacy Notice Modal -->
-      <div id="privacyNoticeModal" class="modal">
+      <!-- <div id="privacyNoticeModal" class="modal">
         <div class="modal-content">
           <span class="close" id="closePrivacy">&times;</span>
           <h1>Privacy Notice</h1>
@@ -423,13 +407,24 @@ function showConfirmationMessage() {
             privacyModal.style.display = "none";
           }
         }
-      </script>
+      </script> -->
   
   
   
     </footer>
   <!-- Footer ended-->
  
+  <!--Go to top button-->
+  <div id="back-to-top-container" onclick="lenis.scrollTo('#home')" class="right">
+    <div class="circle1">
+    <svg id="back-to-top" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+      class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
+      <path
+        d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z" />
+    </svg>
+   </div>
+  </div>
+
   <script src="../js/read_later.js"></script>
   <script>
     // Function to toggle dark mode
